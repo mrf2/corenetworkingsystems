@@ -22,6 +22,7 @@ int open_clientfd(char *hostname, int port)
    /* void bzero(void s[.n], size_t n); */
 	bzero((char *)&serveraddr, sizeof(serveraddr));
 	serveraddr.sin_family = AF_INET;
+   /* [[deprecated]] void bcopy(const void src[.n], void dest[.n], size_t n); */
 	bcopy((char *)hp->h_addr_list[0],
 		(char *)&serveraddr.sin_addr.s_addr, hp->h_length);
 	serveraddr.sin_port = htons(port);
